@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// Externals
+import React from 'react';
+// Internals
+import Tooltip, {TooltipTrigger, TooltipContent} from './Tooltip';
+// Styling
+import "./styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+
+    const onDisplay = () => {
+        console.log('onDisplay event')
+    }
+
+    return (
+        <section>
+            <h1>Tooltips using React Hooks</h1>
+            <Tooltip id="shippingInfo">
+				<TooltipTrigger>
+					Hover me
+				</TooltipTrigger>
+				<TooltipContent>
+					<h2 className="heading">Heading text</h2>
+					<p>Lorem ipsum dolor sit amet feli elit.</p>
+				</TooltipContent>
+			</Tooltip>
+            <Tooltip id="shippingInfo2">
+				<TooltipTrigger as="div">
+                    Hover me
+				</TooltipTrigger>
+				<TooltipContent placement="top" onDisplay={onDisplay}>
+					<h2 className="heading">Heading text</h2>
+					<p>Lorem ipsum dolor sit amet feli elit.</p>
+				</TooltipContent>
+			</Tooltip>
+        </section>
+    );
 }
-
-export default App;

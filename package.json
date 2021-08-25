@@ -7,16 +7,16 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.3.1",
+    "postcss-nested": "^5.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "parcel ./src/index.html --open",
+    "prebuild": "rm -rf dist",
+    "build": "parcel build ./src/index.html --public-url . --no-source-maps"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +35,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "parcel-bundler": "^1.12.5",
+    "postcss-modules": "^4.2.2"
   }
 }
